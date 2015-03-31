@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" data-framework="backbonejs">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Programmer Competency Matrix">
+    <meta name="author" content="aksanoble">
+
+		<title>Programmer Competency Matrix</title>
+
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/index.css">
+	</head>
+	<body>
+
+	  <div class="container">
+	    <div class="page-header">
+	      <h1>Programmer Competency Matrix </h1>
+	      <p class="lead">Track your progress as a programmer</p>
+	  	</div>
+	    <table class="table table-bordered table-hover" id="pcm-table">
+	      <thead class="table-head">
+	        <tr>
+	          <th></th>
+	          <th>2<sup>n</sup> (level 0)</th>
+	          <th>n<sup>2</sup> (level 1)</th>
+	          <th>n (level 2)</th>
+	          <th>log(n) (level 3)</th>
+	        </tr>
+	      </thead>
+
+		      <script id="template" type="text/x-handlebars-template">
+		        <tbody class="table-body">
+		          {{#topics}}
+		            <tr>
+		              <td>{{topic}}</td>
+		              <td>{{levelZero}}</td>
+		              <td>{{levelOne}}</td>
+		              <td>{{levelTwo}}</td>
+		              <td>{{levelThree}}</td>
+		            </tr>
+		        {{/topics}}
+		      </tbody>
+		    </table>
+		    </script>
+		</div>
+
+		<script src="js/lib/jquery/dist/jquery.js"></script>
+		<script src="js/lib/underscore/underscore.js"></script>
+		<script src="js/lib/handlebars/handlebars.js"></script>
+		<script src="js/lib/backbone/backbone.js"></script>
+		<script src="js/lib/backbone-pubnub/backbone-pubnub.js"></script>
+		<script src="js/lib/backbone.localstorage/backbone.localStorage.js"></script>
+		<script src="js/models/key.js"></script>
+		<script src="js/collections/keys.js"></script>
+		<script src="js/routers/router.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>
