@@ -1,3 +1,16 @@
+uuid = PUBNUB.uuid();
+ pubnub = PUBNUB.init({
+    publish_key: 'demo',
+    subscribe_key: 'demo',
+    uuid : uuid
+});
+
+pubnub.time(
+    function(time){
+       console.log(time)
+    }
+ );
+
 var data = {
 
           topics: [
@@ -12,8 +25,7 @@ var template = Handlebars.compile($("#template").html());
 var html = template(data);
 $(html).insertAfter($("thead"));
 
-var table = $("#pcm-table").tableToJSON;
-
+/*
 var matrix = JSON.parse(localStorage.getItem('matrixKey')) || [];
       if (matrix.length === 0) {
           localStorage.setItem('matrixKey', JSON.stringify(matrix));
@@ -33,3 +45,4 @@ $("td").click(function(e){                                    //add click event 
   matrix[Math.floor(cellIndex/5)] = cellIndex;                //array indexed mapped to row index for unique mapping
   localStorage.setItem('matrixKey', JSON.stringify(matrix));  //update local storage
 });
+*/
