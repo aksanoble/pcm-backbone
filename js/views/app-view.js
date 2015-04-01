@@ -45,7 +45,7 @@ var MyModel = Backbone.PubNub.Model.extend({
     return {
       rand: Math.random(),
       title: "My Model",
-      key: 1
+      key: [0,5,10]
     };
   }
 });
@@ -73,10 +73,9 @@ var MyModelView = Backbone.View.extend({
   updateKey: function(e) {
     console.log("clicked!");
     cellIndex = $("td").index(e.target);
-    //matrixKey = mymodel.get('key');
-    //matrixKey[Math.floor(cellIndex/5)] = cellIndex;
-    return mymodel.set({key : cellIndex});
-
+    matrixKey = _.clone(mymodel.get('key'));
+    matrixKey[Math.floor(cellIndex/5)] = cellIndex;
+    return mymodel.set({key : matrixKey});
   },
 
   addClass: function(cell) {
@@ -93,8 +92,9 @@ var MyModelView = Backbone.View.extend({
   render: function() {
     this.$('#mymodel').html(this.template(mymodel.toJSON()));
     console.log('render triggered');
-    //var matrixCell = app.key.get('key');
-    this.addClass(mymodel.get('key'));
+    var matrixCell = mymodel.get('key');
+    _.each(matrixCell, this.addClass);
+    //this.addClass(mymodel.get('key'));
 
   }
 });
