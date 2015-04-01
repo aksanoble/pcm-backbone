@@ -1,11 +1,13 @@
 var app = app || {};
-$(function() {
+/*$(function() {
   app.Key = Backbone.PubNub.Model.extend({
-    name: 'MyModel',
+    name: 'MyModelKey',
     pubnub: pubnub,
     defaults: {
+      title: "the key",
       key: [0,5,10]
     }
   });
-
+app.key = new app.Key();
 });
+*/
