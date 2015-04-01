@@ -85,18 +85,18 @@ var MyModelView = Backbone.View.extend({
     $("td:eq(" + cell+ ")").prevAll().addBack().addClass("checked");
   },
 
-  render: function() {
+  /*render: function() {
     console.log('render triggered');
     return $('#mymodel').html(this.template(mymodel.toJSON()));
   }
-
-  /*render: function() {
-    this.$el.html(this.template(mymodel.toJSON()));
+*/
+  render: function() {
+    this.$('#mymodel').html(this.template(mymodel.toJSON()));
     console.log('render triggered');
-    var matrixCell = app.key.get('key');
-    _.each(matrixCell, this.addClass);
+    //var matrixCell = app.key.get('key');
+    this.addClass(mymodel.get('key'));
 
-  }*/
+  }
 });
 
 var modelview = new MyModelView;
